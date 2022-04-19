@@ -9,19 +9,23 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+// TODO: 4/20/22 remove extra code
 public class Main {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final Computer mainComputer = new MainComputer("100");
 
+    // TODO: 4/20/22 provide documentation
     public static void main(String[] args) {
 
+        // TODO: 4/20/22 handle case if user input some invalid data
         System.out.print("Input a count of secondary computers: ");
         int n = scanner.nextInt();
 
         List<Computer> computers = generateSecondaryComputers(n);
         computers.forEach(c -> c.notifyMainComputer(mainComputer, "some-error-" + UUID.randomUUID()));
 
+        // TODO: 4/20/22 provide more tests, JUNIT ?
         Computer someComputer = computers.get(0);
         try {
             someComputer.showError("error", mainComputer.getId());

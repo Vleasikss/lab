@@ -39,5 +39,4 @@ public class MainComputer extends Computer {
         turnOnForAll(secondaryComputers);
     }
 
-
 }
