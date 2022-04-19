@@ -2,6 +2,7 @@ package com.company.model;
 
 import java.util.List;
 
+// TODO: 4/20/22 add toString
 public class SecondaryComputer extends Computer {
 
     public SecondaryComputer(String id) {

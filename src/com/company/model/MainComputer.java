@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// TODO: 4/20/22 add toString
 public class MainComputer extends Computer {
 
     public MainComputer(String id) {

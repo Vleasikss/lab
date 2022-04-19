@@ -5,8 +5,8 @@ import java.util.List;
 public abstract class Computer {
 
     protected String id;
-    protected boolean isMain;
     protected Status status;
+    protected boolean isMain;
 
     public Computer(String id, Status status, boolean isMain) {
         this.id = id;
@@ -52,11 +52,4 @@ public abstract class Computer {
         isMain = main;
     }
 
-    @Override
-    public String toString() {
-        return "Computer{" +
-                "id='" + id + '\'' +
-                ", status=" + status +
-                '}';
-    }
 }
