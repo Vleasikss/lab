@@ -1,6 +1,7 @@
 package com.company.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class Computer {
 
@@ -14,11 +15,15 @@ public abstract class Computer {
         this.isMain = isMain;
     }
 
-    public void notifyMainComputer(Computer computer, String message) {
-        computer.showError(message, this.id);
+    public void notifyMainComputer(Computer mainComputer, String message) {
+        try {
+            mainComputer.showNotification(message, this);
+        } catch (UnsupportedOperationException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public abstract void showError(String error, String from);
+    public abstract void showNotification(String message, Computer from);
 
     public abstract void turnOnForAll(List<Computer> secondaryComputers);
 
@@ -26,8 +31,10 @@ public abstract class Computer {
 
     public abstract void reboot(List<Computer> secondaryComputers);
 
-    protected String getPrefix() {
-        return "Main-" + this.id;
+    protected abstract String getPrefix();
+
+    protected static String getIds(List<Computer> computers) {
+        return computers.stream().map(c -> c.id).collect(Collectors.joining(", "));
     }
 
     public String getId() {

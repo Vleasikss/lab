@@ -23,15 +23,13 @@ public class Main {
         int n = scanner.nextInt();
 
         List<Computer> computers = generateSecondaryComputers(n);
-        computers.forEach(c -> c.notifyMainComputer(mainComputer, "some-error-" + UUID.randomUUID()));
+        computers.forEach(c -> c.notifyMainComputer(mainComputer, "some-message-" + UUID.randomUUID()));
 
         // TODO: 4/20/22 provide more tests, JUNIT ?
         Computer someComputer = computers.get(0);
-        try {
-            someComputer.showError("error", mainComputer.getId());
-        } catch (UnsupportedOperationException e) {
-            mainComputer.showError(e.getMessage(), someComputer.getId());
-        }
+
+        mainComputer.notifyMainComputer(someComputer, "asdas");
+
 
         mainComputer.turnOnForAll(computers);
         mainComputer.turnOffForAll(computers);

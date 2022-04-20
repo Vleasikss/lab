@@ -1,8 +1,6 @@
 package com.company.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 // TODO: 4/20/22 add toString
 public class MainComputer extends Computer {
@@ -13,9 +11,9 @@ public class MainComputer extends Computer {
 
     // TODO: 4/20/22 handle case if showError has id from MainComputer
     @Override
-    public void showError(String error, String from) {
-        String errorMessage = getPrefix() + " retrieved an error from " + from + ": " + error;
-        System.out.println(errorMessage);
+    public void showNotification(String message, Computer from) {
+        String notificationMessage = getPrefix() + " retrieved a message from " + from.getPrefix() + ": " + message;
+        System.out.println(notificationMessage);
     }
 
     // TODO: 4/20/22 handle case if List<Computer> secondaryComputers contain object instance of MainComputer
@@ -38,7 +36,18 @@ public class MainComputer extends Computer {
         turnOnForAll(secondaryComputers);
     }
 
-    private static String getIds(List<Computer> computers) {
-        return computers.stream().map(c -> c.id).collect(Collectors.joining(", "));
+    @Override
+    protected String getPrefix() {
+        return "Main-" + this.id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "MainComputer{" +
+                "id='" + id + '\'' +
+                ", status=" + status +
+                ", isMain=" + isMain +
+                '}';
     }
 }

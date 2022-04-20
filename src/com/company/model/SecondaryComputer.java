@@ -10,35 +10,36 @@ public class SecondaryComputer extends Computer {
     }
 
     @Override
-    public void notifyMainComputer(Computer computer, String message) {
-        computer.showError(message, this.id);
-    }
-
-    @Override
-    public void showError(String error, String from) {
-        throw new UnsupportedOperationException("secondary is unable to show errors");
+    public void showNotification(String message, Computer from) {
+        throw new UnsupportedOperationException(getPrefix() + " is unable to retrieve a message from " + from.getPrefix());
     }
 
     @Override
     public void turnOnForAll(List<Computer> secondaryComputers) {
-        throw new UnsupportedOperationException("secondary is unable to show turn on all computers");
+        throw new UnsupportedOperationException(getPrefix() + " is unable to show turn on computers: " + getIds(secondaryComputers));
     }
 
     @Override
     public void turnOffForAll(List<Computer> secondaryComputers) {
-        throw new UnsupportedOperationException("secondary is unable to show turn off all computers");
+        throw new UnsupportedOperationException(getPrefix() + " is unable to show turn off computers: " + getIds(secondaryComputers));
     }
 
     @Override
     public void reboot(List<Computer> secondaryComputers) {
-        throw new UnsupportedOperationException("secondary is unable to show turn off all computers");
+        throw new UnsupportedOperationException(getPrefix() + " is unable to show turn off computers: " + getIds(secondaryComputers));
+    }
+
+    @Override
+    protected String getPrefix() {
+        return "Secondary-" + this.id;
     }
 
     @Override
     public String toString() {
-        return "SecondaryComputer{" +
+        return getPrefix() + "Computer{" +
                 "id='" + id + '\'' +
                 ", status=" + status +
+                ", isMain=" + isMain +
                 '}';
     }
 }
