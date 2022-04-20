@@ -26,13 +26,19 @@ public class Main {
         computers.forEach(c -> c.notifyMainComputer(mainComputer, "some-message-" + UUID.randomUUID()));
 
         // TODO: 4/20/22 provide more tests, JUNIT ?
+        // get first elem of list
         Computer someComputer = computers.get(0);
 
-        mainComputer.notifyMainComputer(someComputer, "asdas");
-
-
+        // should work fine
         mainComputer.turnOnForAll(computers);
         mainComputer.turnOffForAll(computers);
+
+        // it will fail
+        mainComputer.notifyMainComputer(someComputer, "asdas");
+
+        // it won't fail
+        someComputer.notifyMainComputer(mainComputer, "it should not fail");
+
     }
 
     private static List<Computer> generateSecondaryComputers(int n) {

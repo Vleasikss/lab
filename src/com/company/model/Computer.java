@@ -16,11 +16,11 @@ public abstract class Computer {
     }
 
     public void notifyMainComputer(Computer mainComputer, String message) {
-        try {
+        if (mainComputer instanceof MainComputer) {
             mainComputer.showNotification(message, this);
-        } catch (UnsupportedOperationException e) {
-            System.out.println(e.getMessage());
+            return;
         }
+        System.err.println(mainComputer.getPrefix() + " is unable to retrieve a message from " + getPrefix());
     }
 
     public abstract void showNotification(String message, Computer from);
