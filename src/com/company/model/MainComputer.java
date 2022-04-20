@@ -11,11 +11,6 @@ public class MainComputer extends Computer {
         super(id, null, true);
     }
 
-    @Override
-    public void notifyMainComputer(Computer computer, String error) {
-        throw new UnsupportedOperationException("main computer can't notify itself");
-    }
-
     // TODO: 4/20/22 handle case if showError has id from MainComputer
     @Override
     public void showError(String error, String from) {

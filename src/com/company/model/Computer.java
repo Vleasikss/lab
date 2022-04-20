@@ -14,7 +14,9 @@ public abstract class Computer {
         this.isMain = isMain;
     }
 
-    public abstract void notifyMainComputer(Computer computer, String error);
+    public void notifyMainComputer(Computer computer, String message) {
+        computer.showError(message, this.id);
+    }
 
     public abstract void showError(String error, String from);
 
