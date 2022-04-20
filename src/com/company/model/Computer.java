@@ -29,7 +29,10 @@ public abstract class Computer {
 
     public abstract void reboot(List<Computer> secondaryComputers);
 
-    protected abstract String getPrefix();
+    // TODO: 4/21/22 FYI it can be overriden if such name is not preferable
+    protected String getPrefix() {
+        return getClass().getSimpleName() + "-" + id;
+    }
 
     protected static String getIds(List<Computer> computers) {
         return computers.stream().map(c -> c.id).collect(Collectors.joining(", "));

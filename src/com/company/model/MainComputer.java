@@ -12,8 +12,7 @@ public class MainComputer extends Computer {
     // TODO: 4/20/22 handle case if showError has id from MainComputer
     @Override
     public void showNotification(String message, Computer from) {
-        String notificationMessage = getPrefix() + " retrieved a message from " + from.getPrefix() + ": " + message;
-        System.out.println(notificationMessage);
+        System.out.println(getPrefix() + " retrieved a message from " + from.getPrefix() + ": " + message);
     }
 
     // TODO: 4/20/22 handle case if List<Computer> secondaryComputers contain object instance of MainComputer
@@ -34,11 +33,6 @@ public class MainComputer extends Computer {
     public void reboot(List<Computer> secondaryComputers) {
         turnOffForAll(secondaryComputers);
         turnOnForAll(secondaryComputers);
-    }
-
-    @Override
-    protected String getPrefix() {
-        return "Main-" + this.id;
     }
 
     @Override

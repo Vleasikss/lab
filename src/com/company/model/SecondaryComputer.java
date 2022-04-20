@@ -30,11 +30,6 @@ public class SecondaryComputer extends Computer {
     }
 
     @Override
-    protected String getPrefix() {
-        return "Secondary-" + this.id;
-    }
-
-    @Override
     public String toString() {
         return "SecondaryComputer{" +
                 "id='" + id + '\'' +
