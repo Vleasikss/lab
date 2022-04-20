@@ -6,7 +6,7 @@ import java.util.List;
 public class MainComputer extends Computer {
 
     public MainComputer(String id) {
-        super(id, null, true);
+        super(id, null);
     }
 
     // TODO: 4/20/22 handle case if showError has id from MainComputer
@@ -41,13 +41,11 @@ public class MainComputer extends Computer {
         return "Main-" + this.id;
     }
 
-
     @Override
     public String toString() {
         return "MainComputer{" +
                 "id='" + id + '\'' +
                 ", status=" + status +
-                ", isMain=" + isMain +
                 '}';
     }
 }

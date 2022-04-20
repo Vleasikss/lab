@@ -7,12 +7,10 @@ public abstract class Computer {
 
     protected String id;
     protected Status status;
-    protected boolean isMain;
 
-    public Computer(String id, Status status, boolean isMain) {
+    public Computer(String id, Status status) {
         this.id = id;
         this.status = status;
-        this.isMain = isMain;
     }
 
     public void notifyMainComputer(Computer mainComputer, String message) {
@@ -51,14 +49,6 @@ public abstract class Computer {
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public boolean isMain() {
-        return isMain;
-    }
-
-    public void setMain(boolean main) {
-        isMain = main;
     }
 
 }

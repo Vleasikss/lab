@@ -6,7 +6,7 @@ import java.util.List;
 public class SecondaryComputer extends Computer {
 
     public SecondaryComputer(String id) {
-        super(id, null, false);
+        super(id, null);
     }
 
     @Override
@@ -36,10 +36,9 @@ public class SecondaryComputer extends Computer {
 
     @Override
     public String toString() {
-        return getPrefix() + "Computer{" +
+        return "SecondaryComputer{" +
                 "id='" + id + '\'' +
                 ", status=" + status +
-                ", isMain=" + isMain +
                 '}';
     }
 }
